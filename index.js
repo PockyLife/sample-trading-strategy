@@ -34,8 +34,6 @@ process.env.CID         = 0
 
 const ALL_STRATEGIES = {
     'Crossover Strategy': CrossoverStrategy,
-    'RSI Strategy': RsiStrategy,
-    'Your Custom Strategy': YourCustomStrategy
 }
 
 //Replay times must be JSON strings!
@@ -58,13 +56,12 @@ async function main() {
     // // // // // // // // // // // // // // // //
     // Login Section                             //
     // // // // // // // // // // // // // // // //
-
+    
     await acquireAccess()
-
+    
     // // // // // // // // // // // // // // // //
     // Configuration Section                     //
     // // // // // // // // // // // // // // // //
-
     const maybeReplayString = await askForReplay(REPLAY_TIMES)
 
     if(maybeReplayString) {
@@ -84,37 +81,39 @@ async function main() {
     
     //COMMENT ABOVE, UNCOMMENT BELOW you want to parameterize the strategy here instead of via console.
     
-    // let contract1 = await askForContract()
+    /*
+    let contract1 = await askForContract()
 
-    // while(!contract1) {
-    //     contract1 = await askForContract(true)
-    // }
+    while(!contract1) {
+        contract1 = await askForContract(true)
+    }
 
-    // const rsi = new RsiStrategy({
-    //     contract: contract1,
-    //     barType: 'MinuteBar',
-    //     barInterval: 30,
-    //     elementSizeUnit: 'UnderlyingUnits',
-    //     histogram: false,
-    //     timeRangeType: 'asMuchAsElements',
-    //     timeRangeValue: 14,
-    //     dev_mode: !!maybeReplayString,
-    //     replay_periods: REPLAY_TIMES,
-    //     period: 14,
-    //     orderQuantity: 1,
-    // })
+    const crossoverStrat = new CrossoverStrategy({
+        contract: contract1,
+        barType: 'MinuteBar',
+        barInterval: 30,
+        elementSizeUnit: 'UnderlyingUnits',
+        histogram: false,
+        timeRangeType: 'asMuchAsElements',
+        timeRangeValue: 14,
+        dev_mode: !!maybeReplayString,
+        replay_periods: REPLAY_TIMES,
+        period: 14,
+        orderQuantity: 1,
+    })
 
-    // const display = new PriceDisplayStrategyFP({
-    //     contract: contract1,
-    //     barType: 'MinuteBar',
-    //     barInterval: 1,
-    //     elementSizeUnit: 'UnderlyingUnits',
-    //     histogram: false,
-    //     timeRangeType: 'asMuchAsElements',
-    //     timeRangeValue: 1,
-    //     dev_mode: !!maybeReplayString,
-    //     replay_periods: REPLAY_TIMES
-    // })    
-}
+    const display = new PriceDisplayStrategyFP({
+        contract: contract1,
+        barType: 'MinuteBar',
+        barInterval: 1,
+        elementSizeUnit: 'UnderlyingUnits',
+        histogram: false,
+        timeRangeType: 'asMuchAsElements',
+        timeRangeValue: 1,
+        dev_mode: !!maybeReplayString,
+        replay_periods: REPLAY_TIMES
+    })*/
+        
+    }
 
 main()
